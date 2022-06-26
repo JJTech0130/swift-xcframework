@@ -22,7 +22,7 @@ let package = Package(
                 // Note that dashes are replaced with underscores in the name.
                 name: "xcframework_template",
                 url: "https://nightly.link/JJTech0130/xcframework-template/actions/runs/2562633129/xcframework.zip",
-                checksum: "5ac8af739be9f09ade037d9f14edbd87fa3fb507812a75475d36b4286af26b83"
+                checksum: ""
         ),
     ]
 )
