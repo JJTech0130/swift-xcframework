@@ -19,7 +19,7 @@ jobs:
         
       - name: Calculate SHA256 hash
         run: |
-          HASH=$(curl -sL ${{ inputs.url }} | shasum -a 256)
+          HASH=$(curl -sL ${{ inputs.url }} | shasum -a 256 | head -c 64)
           echo "hash=$HASH" >> $GITHUB_ENV
         
       - name: Replace URL in Package.swift
