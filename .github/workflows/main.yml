@@ -29,4 +29,9 @@ jobs:
         
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
+        with: 
+          commit_message: Update Package.swift to match xcframework artifact
+          commit_user_name: SideStore Bot
+          commit_user_email: 108193881+SideStorer@users.noreply.github.com
+          commit_author: SideStorer <108193881+SideStorer@users.noreply.github.com>
 
