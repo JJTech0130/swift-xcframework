@@ -21,6 +21,10 @@ jobs:
           URL: ${{ inputs.url }}
         run: echo $URL
         
+      - name: calculate hash
+        run: |
+          curl -sL ${{ inputs.url }} | shasum -a 256
+        
       - name: Replace URL in Package.swift
         env:
           URL: ${{ inputs.url }}
