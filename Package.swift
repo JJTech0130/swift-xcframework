@@ -21,8 +21,8 @@ let package = Package(
         .binaryTarget(
                 // Note that dashes are replaced with underscores in the name.
                 name: "xcframework_template",
-                url: "https://nightly.link/JJTech0130/xcframework-template/actions/runs/2562694097/xcframework.zip",
-                checksum: "22efee3a712ca23a002002153ef4fbb7957498fb66aa8328bca6d366bf140390"
+                url: "https://nightly.link/JJTech0130/xcframework-template/actions/runs/2564922040/xcframework.zip",
+                checksum: "1f84ad700a6dad069a24871e766e47aa98558eb45b59ac56bb247a2285799e01"
         ),
     ]
 )
