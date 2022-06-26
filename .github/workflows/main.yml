@@ -19,11 +19,16 @@ jobs:
         
       - name: Calculate SHA256 hash
         run: |
-          curl -sL ${{ inputs.url }} | shasum -a 256
+          HASH = curl -sL ${{ inputs.url }} | shasum -a 256
+          echo "hash=$HASH" >> $GITHUB_ENV
         
       - name: Replace URL in Package.swift
         run: |
           sed -i 's|\(url: "\).*\("\)|\1${{ inputs.url }}\2|g' Package.swift
+          
+      - name: Replace checksum in Package.swift
+        run: |
+          sed -i 's|\(checksum: "\).*\("\)|\1${{ env.hash }}\2|g' Package.swift
         
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
