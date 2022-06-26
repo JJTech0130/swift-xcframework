@@ -16,20 +16,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
-      - env:
-          URL: ${{ inputs.url }}
-        run: echo $URL
         
-      - name: calculate hash
+      - name: Calculate SHA256 hash
         run: |
           curl -sL ${{ inputs.url }} | shasum -a 256
         
       - name: Replace URL in Package.swift
-        env:
-          URL: ${{ inputs.url }}
         run: |
-          sed -i 's|\(url: "\).*\("\)|\1$URL\2|g' Package.swift
+          sed -i 's|\(url: "\).*\("\)|\1${{ inputs.url }}\2|g' Package.swift
         
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
